@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfect IELTS Listening Dictation Vol.1 — Website & HTML Presentations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --text: #0F172A;
+      --muted: #475569;
+      --border: #E2E8F0;
+      --primary: #1D4ED8;
+      --emerald: #047857;
+      --amber: #B45309;
+      --font-sans: 'Be Vietnam Pro', sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+      color: #FFFFFF;
+      padding: 44px 24px 38px;
+      border-bottom: 1px solid #1E293B;
+    }
+    .hero-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-kicker {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #93C5FD;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: #E2E8F0;
+      max-width: 820px;
+    }
+    .hero-kpi-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .kpi-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-family: var(--font-mono);
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+    .section-head h2 {
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .unit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+    }
+    .unit-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .unit-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+      color: #FFFFFF;
+    }
+    .unit-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .unit-feature-list {
+      list-style: none;
+      font-size: 13.5px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .btn-open-unit {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    .btn-open-unit:hover { opacity: 0.92; }
+
+    .sub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .sub-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sub-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sub-code-badge {
+      background: #DBEAFE;
+      color: var(--primary);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .sub-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .sub-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .sub-desc {
+      font-size: 13px;
+      color: var(--muted);
+      flex: 1;
+    }
+    .sub-links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .btn-sub-open {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      background: #EFF6FF;
+      padding: 7px 12px;
+      border-radius: 8px;
+      border: 1px solid #BFDBFE;
+    }
+    .btn-sub-unit {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .drive-bar {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .drive-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .drive-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      background: #F1F5F9;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">PERFECT IELTS LISTENING DICTATION • VOLUME 1</div>
+      <h1 class="hero-title">Hệ thống Website & Slide Luyện Nghe Chép Chính Tả IELTS (350 Câu)</h1>
+      <p class="hero-desc">
+        Mỗi bài thuyết trình trong thư mục <code>HTML_presentations/</code> tương ứng với một Unit (và từng chuyên đề con 1A–3C). Mỗi Slide là một câu hỏi độc lập đi kèm <strong>File Audio MP3 đã cắt riêng</strong> (<code>audio/1A_01.mp3</code> .. <code>3C_50.mp3</code>), <strong>Gợi ý đáp án 3 cấp độ</strong>, <strong>Chấm đáp án tự động & Tapescript song ngữ</strong>, và <strong>Tra từ vựng trực tiếp</strong>.
+      </p>
+      <div class="hero-kpi-strip">
+        <span class="kpi-pill">🎯 3 Units • 11 Chuyên đề</span>
+        <span class="kpi-pill">🗂️ 350 Slide Câu hỏi</span>
+        <span class="kpi-pill">🎧 350 File Audio MP3 Cắt Riêng</span>
+        <span class="kpi-pill">📖 Tapescript Anh-Việt & Từ Điển Tương Tác</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 3 Main Unit Presentations -->
+    <section>
+      <div class="section-head">
+        <h2>1. Thư mục HTML_presentations theo từng Unit (Mỗi Slide = 1 Câu hỏi)</h2>
+        <span style="font-size:13px; color:var(--muted);">Đường dẫn: <code>HTML_presentations/unit-1.html</code>, <code>unit-2.html</code>, <code>unit-3.html</code></span>
+      </div>
+
+      <div class="unit-grid">
+        <div class="unit-card">
+          <span class="unit-badge" style="background:#1D4ED8;">UNIT 1 • 95 SLIDES</span>
+          <h3>Unit 1: Letter (Chữ cái & Đánh vần)</h3>
+          <ul class="unit-feature-list">
+            <li>• <strong>1.A Address</strong> (Câu 1–35): Tên đường phố, tòa nhà, địa điểm</li>
+            <li>• <strong>1.B Name</strong> (Câu 1–45): Họ và tên người, bẫy âm đôi</li>
+            <li>• <strong>1.C Email & Website</strong> (Câu 1–5): Địa chỉ mạng & ký hiệu</li>
+            <li>• <strong>1.D Country & City</strong> (Câu 1–10): Quốc gia & Thành phố</li>
+          </ul>
+          <a href="HTML_presentations/unit-1.html" class="btn-open-unit">🎧 Mở HTML Presentation — Unit 1 (95 Slide)</a>
+        </div>
+
+        <div class="unit-card">
+          <span class="unit-badge" style="background:#047857;">UNIT 2 • 125 SLIDES</span>
+          <h3>Unit 2: Number (Con số & Định lượng)</h3>
+          <ul class="unit-feature-list">
+            <li>• <strong>2.A Phone & ID Number</strong> (Câu 1–40): Số điện thoại & mã thẻ</li>
+            <li>• <strong>2.B Money</strong> (Câu 1–35): Giá tiền, học phí, lương (£, $, €)</li>
+            <li>• <strong>2.C Time</strong> (Câu 1–30): Giờ khởi hành, giờ mở cửa, thời lượng</li>
+            <li>• <strong>2.D Measurement</strong> (Câu 1–20): Kích thước, khoảng cách, số lượng</li>
+          </ul>
+          <a href="HTML_presentations/unit-2.html" class="btn-open-unit" style="background:#047857;">🎧 Mở HTML Presentation — Unit 2 (125 Slide)</a>
+        </div>
+
+        <div class="unit-card">
+          <span class="unit-badge" style="background:#B45309;">UNIT 3 • 130 SLIDES</span>
+          <h3>Unit 3: Letter & Number (Kết hợp Chữ & Số)</h3>
+          <ul class="unit-feature-list">
+            <li>• <strong>3.A Address, Postcode & Code</strong> (Câu 1–50): Mã bưu điện, chuyến bay</li>
+            <li>• <strong>3.B Ordinal Number</strong> (Câu 1–30): Số thứ tự (1st, 2nd, 3rd...)</li>
+            <li>• <strong>3.C Date</strong> (Câu 1–50): Ngày, tháng, năm & lịch hẹn</li>
+          </ul>
+          <a href="HTML_presentations/unit-3.html" class="btn-open-unit" style="background:#B45309;">🎧 Mở HTML Presentation — Unit 3 (130 Slide)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 Subunit Presentations -->
+    <section>
+      <div class="section-head">
+        <h2>2. Danh sách 11 Bài Presentation theo từng Chuyên đề con (1.A → 3.C)</h2>
+        <span style="font-size:13px; color:var(--muted);">Tất cả đều kết nối trực tiếp với 350 file MP3 trong thư mục <code>audio/</code></span>
+      </div>
+      <div class="sub-grid">
+        
+        <div class="sub-card" data-unit="1">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">1A</span>
+            <span class="sub-count">35 Slide • 35 file MP3</span>
+          </div>
+          <h4 class="sub-title">1.A — Address (Địa chỉ & Tên đường)</h4>
+          <p class="sub-desc">Luyện nghe đánh vần tên đường phố, tòa nhà và địa điểm trong IELTS Listening Section 1.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-1a-address.html" class="btn-sub-open">▶ Mở Presentation 1A (35 câu)</a>
+            <a href="HTML_presentations/unit-1.html" class="btn-sub-unit">Thuộc Unit 1</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="1">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">1B</span>
+            <span class="sub-count">45 Slide • 45 file MP3</span>
+          </div>
+          <h4 class="sub-title">1.B — Name (Họ và Tên riêng)</h4>
+          <p class="sub-desc">Luyện nghe đánh vần họ và tên người (First name & Surname) với các bẫy âm đôi và nguyên âm dễ nhầm.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-1b-name.html" class="btn-sub-open">▶ Mở Presentation 1B (45 câu)</a>
+            <a href="HTML_presentations/unit-1.html" class="btn-sub-unit">Thuộc Unit 1</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="1">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">1C</span>
+            <span class="sub-count">5 Slide • 5 file MP3</span>
+          </div>
+          <h4 class="sub-title">1.C — Email & Website (Địa chỉ mạng)</h4>
+          <p class="sub-desc">Luyện nghe địa chỉ email và tên miền website (dot, slash, hyphen, underscore, at).</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-1c-email-website.html" class="btn-sub-open">▶ Mở Presentation 1C (5 câu)</a>
+            <a href="HTML_presentations/unit-1.html" class="btn-sub-unit">Thuộc Unit 1</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="1">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">1D</span>
+            <span class="sub-count">10 Slide • 10 file MP3</span>
+          </div>
+          <h4 class="sub-title">1.D — Country & City (Quốc gia & Thành phố)</h4>
+          <p class="sub-desc">Luyện nghe tên thành phố, tiểu bang, quốc gia và quốc tịch thường gặp trong bài thi.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-1d-country-city.html" class="btn-sub-open">▶ Mở Presentation 1D (10 câu)</a>
+            <a href="HTML_presentations/unit-1.html" class="btn-sub-unit">Thuộc Unit 1</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="2">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">2A</span>
+            <span class="sub-count">40 Slide • 40 file MP3</span>
+          </div>
+          <h4 class="sub-title">2.A — Phone & ID Number (Số điện thoại & Mã thẻ)</h4>
+          <p class="sub-desc">Luyện nghe dãy số điện thoại, số thẻ hội viên, mã đặt chỗ với cách đọc 'oh', 'double', 'triple'.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-2a-phone-number.html" class="btn-sub-open">▶ Mở Presentation 2A (40 câu)</a>
+            <a href="HTML_presentations/unit-2.html" class="btn-sub-unit">Thuộc Unit 2</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="2">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">2B</span>
+            <span class="sub-count">35 Slide • 35 file MP3</span>
+          </div>
+          <h4 class="sub-title">2.B — Money (Tiền tệ, Giá cả & Chi phí)</h4>
+          <p class="sub-desc">Luyện nghe giá tiền, học phí, tiền thuê nhà, lương theo giờ (£, $, €, số thập phân) và bẫy thay đổi giá.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-2b-money.html" class="btn-sub-open">▶ Mở Presentation 2B (35 câu)</a>
+            <a href="HTML_presentations/unit-2.html" class="btn-sub-unit">Thuộc Unit 2</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="2">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">2C</span>
+            <span class="sub-count">30 Slide • 30 file MP3</span>
+          </div>
+          <h4 class="sub-title">2.C — Time (Thời gian & Giờ giấc)</h4>
+          <p class="sub-desc">Luyện nghe giờ khởi hành, giờ mở cửa, thời lượng (half past, quarter to, a.m./p.m.).</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-2c-time.html" class="btn-sub-open">▶ Mở Presentation 2C (30 câu)</a>
+            <a href="HTML_presentations/unit-2.html" class="btn-sub-unit">Thuộc Unit 2</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="2">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">2D</span>
+            <span class="sub-count">20 Slide • 20 file MP3</span>
+          </div>
+          <h4 class="sub-title">2.D — Measurement & Quantity (Đo lường & Số lượng)</h4>
+          <p class="sub-desc">Luyện nghe kích thước, khoảng cách, diện tích, cân nặng và số lượng người/vật.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-2d-measurement.html" class="btn-sub-open">▶ Mở Presentation 2D (20 câu)</a>
+            <a href="HTML_presentations/unit-2.html" class="btn-sub-unit">Thuộc Unit 2</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="3">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">3A</span>
+            <span class="sub-count">50 Slide • 50 file MP3</span>
+          </div>
+          <h4 class="sub-title">3.A — Address, Postcode & Flight/Customer Code</h4>
+          <p class="sub-desc">Luyện nghe kết hợp chữ và số: địa chỉ nhà (Số nhà + Tên đường), mã bưu điện (Postcode), số hiệu chuyến bay, mã hồ sơ.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-3a-mixed-code.html" class="btn-sub-open">▶ Mở Presentation 3A (50 câu)</a>
+            <a href="HTML_presentations/unit-3.html" class="btn-sub-unit">Thuộc Unit 3</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="3">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">3B</span>
+            <span class="sub-count">30 Slide • 30 file MP3</span>
+          </div>
+          <h4 class="sub-title">3.B — Ordinal Number (Số thứ tự: 1st, 2nd, 3rd...)</h4>
+          <p class="sub-desc">Luyện nghe số thứ tự chỉ tầng lầu, thứ hạng, kỷ niệm, đại lộ và phân biệt đuôi -th / -ty.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-3b-ordinal-number.html" class="btn-sub-open">▶ Mở Presentation 3B (30 câu)</a>
+            <a href="HTML_presentations/unit-3.html" class="btn-sub-unit">Thuộc Unit 3</a>
+          </div>
+        </div>
+        
+        <div class="sub-card" data-unit="3">
+          <div class="sub-card-top">
+            <span class="sub-code-badge">3C</span>
+            <span class="sub-count">50 Slide • 50 file MP3</span>
+          </div>
+          <h4 class="sub-title">3.C — Date (Ngày, Tháng, Năm)</h4>
+          <p class="sub-desc">Luyện nghe ngày sinh, ngày hết hạn, lịch hẹn, sự kiện với các định dạng ngày tháng chuẩn IELTS.</p>
+          <div class="sub-links">
+            <a href="HTML_presentations/unit-3c-date.html" class="btn-sub-open">▶ Mở Presentation 3C (50 câu)</a>
+            <a href="HTML_presentations/unit-3.html" class="btn-sub-unit">Thuộc Unit 3</a>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Google Drive Source Links -->
+    <section class="drive-bar">
+      <div>
+        <strong style="font-size:15px;">☁️ Tài liệu gốc trên Google Drive của bạn:</strong>
+        <div style="font-size:13px; color:var(--muted);">Đối chiếu trực tiếp với bộ file gốc trong thư mục PERFECT IELTS LISTENING DICTATION</div>
+      </div>
+      <div class="drive-links">
+        <a href="https://drive.google.com/drive/folders/1OpMH99qXnaNP8B4rG3Gitf5iTxfcc7q3" target="_blank" rel="noopener">📁 Thư mục gốc</a>
+        <a href="https://drive.google.com/drive/folders/1cz1HdnbgapK_n-dJEVbQWoerRMJ35QEc" target="_blank" rel="noopener">📂 Thư mục VOL 1</a>
+        <a href="https://drive.google.com/file/d/1HZKf5k4-evOHOYvpnpBoFV5PXIN8oNZo/view?usp=drivesdk" target="_blank" rel="noopener">📕 Sách bài tập PDF</a>
+        <a href="https://drive.google.com/file/d/1KExq11bmk_6nYDS1sf_Q297dDMaTEa2n/view?usp=drivesdk" target="_blank" rel="noopener">🔑 Đáp án (Keys)</a>
+        <a href="https://drive.google.com/file/d/18yKh84-UjgXlXe2m4J8Xmn8BbT0HCJHS/view?usp=drivesdk" target="_blank" rel="noopener">📝 Transcripts & Dịch nghĩa</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
